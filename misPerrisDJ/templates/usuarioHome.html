@@ -1,0 +1,83 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Usuario - Lista de disponibles.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+            <div id="contenedorForm" class="contenedor-formulario">
+            <!-- Verificar si existen mascotas disponibles.-->
+            {% if mascotas %}
+            <!-- Existen perritos disponibles. -->
+            <h1> Lista de perritos disponibles para adoptar.</h1>
+            <br><hr><br>
+            {% for m in mascotas %}
+            <div class="contenedor-fila-lista">
+            <div class="contenedor-item-lista">
+                <img  src="{{ m.imagen.url}}" alt="Imagen de {{ m.nombre }}">
+                <p>
+                Nombre: {{m.nombre|capfirst }}<br>
+                Raza: {{m.raza|capfirst }}<br>
+                {% ifequal m.estado 'd' %}
+                {{ 'Estado: Disponible' }}
+                {% endifequal %}
+                <br>
+                Descripción: {{m.descripcion|capfirst }}
+                </p>
+            </div>
+            <p>
+                <a href="{% url 'verRescatado' pk=m.id %}">Ver</a>
+                <a href="{% url 'adoptarDisponible' pkPersona=persona.id pkMascota=m.id %}">Adoptar a {{ m.nombre|capfirst }}</a>
+            </p>
+            </div>
+            {% endfor %}
+            <br>
+            <!-- Enlaces para el paginador -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if mascotas.has_previous %}
+                        <a href="?page=1">&laquo; primera</a>
+                        <a href="?page={{ mascotas.previous_page_number }}">Anterior</a>
+                    {% endif %}
+                        <span class="current">
+                        Pagina {{ mascotas.number }} de {{ mascotas.paginator.num_pages }}.
+                    </span> {% if mascotas.has_next %}
+                <a href="?page={{ mascotas.next_page_number }}">siguiente</a>
+                <a href="?page={{ mascotas.paginator.num_pages }}">Ultimo &raquo;</a> {% endif %}
+                </span>
+            </div>
+            {% else %}
+            <!-- No hay perritos disponibles. -->
+                <h1>No hay perritos rescatados disponibles.</h1>
+            <br>
+            <hr><br>
+            <p>
+                En estos momentos no hay perritos disponibles para adoptar.<br>
+                No desespere, siempre estamos rescatando perritos para educarlos y dejarlos disponibles para su pronta adopción.<br>
+                Puede visitar la galería de imagenes de la página de inicio y visualizar los perritos rescatados para comenzar su elección.<br>
+                Gracias por su comprensión.
+            </p>
+            {% endif %}
+        </div>
+    </section>
+    {% endblock %}
+
+    <!-- Script de la pagina. -->
+    {% block jsBody %}
+
+    {% endblock %}
+</body>
+
+</html>

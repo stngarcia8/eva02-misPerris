@@ -1,0 +1,35 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Acceso denegado.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+            <div id="contenedorForm" class="contenedor-formulario">
+                <h1>Registro inválido.</h1>
+            <br>
+            <hr><br>
+            <p>
+                El usuario que intenta crear ya existe en nuestra base de datos.<br>
+                Por favor, inicie sesión para acceder al sitio, si no recuerda su usuario y contraseña,
+                presione opción "Recuperar contraseña" en la página de inicio de sesión.<br>
+                Gracias por su comprensión.
+            </p>
+            </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

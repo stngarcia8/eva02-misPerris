@@ -1,0 +1,177 @@
+/****
+* Archivo: formulario-login.css
+* Caso de uso: Estilos para la pagina con el formulario de postulacionlogin.
+* Alumno: Daniel Garcia.
+* ---------------------------------------------------------------------------------
+****/
+
+
+/****
+* Importando archivos de estilos necesarios.
+* ------------------------------------------
+****/
+
+@import url(presentacion/estilos-comunes.css);
+@import url(presentacion/cabecera.css);
+@import url(presentacion/redes-sociales.css);
+@import url(presentacion/cuerpo-pagina.css);
+@import url(presentacion/pie-pagina.css);
+
+/****
+* Estilos para el contenedor del formulario.
+* ------------------------------------------
+****/
+
+.contenedor-formulario {
+  margin: auto;
+  padding: 10px;
+}
+
+
+/****
+* Estilos para el formulario.
+* ---------------------------
+****/
+
+form {
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+  box-shadow: inset 0 0 1em gray;
+  border-radius: 2px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6dccaa;
+}
+
+
+/****
+* Estilos para el contenedor de los campos.
+* -----------------------------------------
+****/
+
+.contenedor-campo {
+  width: 100%;
+  max-width: 100%;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid #58b494;
+  border-radius: 2px;
+  background-color: #6dccaa;
+}
+
+form label {
+  width: 30%;
+  margin: 5px;
+}
+
+
+/****
+* Estilos para el boton ingresar.
+* ------------------------------
+****/
+
+.boton {
+  width: 40%;
+  margin: auto;
+  margin-top:15px;
+  padding: 10px;
+  background-color: #58b494;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+form input,
+form select {
+  width: 60%;
+  border-radius: 2px;
+}
+
+
+/****
+* Estilos para los input cuando son invalidos.
+* -----------------------------------------------------
+****/
+
+form input:invalid {
+  border: 1px solid red
+}
+
+
+/****
+* Estilos para los input cuando son invalidos.
+* -----------------------------------------------------
+****/
+
+form input:valid {
+  border: 1px solid green
+}
+
+form input:focus {
+  border: 1px solid black;
+  box-shadow: 5px 5px 5px 0px gray;
+  background-color: lime;
+}
+
+form span {
+  width: 100%;
+}
+
+
+/****
+* Estilos para el separador del formulario.
+* -----------------------------------------
+****/
+
+form hr {
+  width: 50%;
+}
+
+
+/****
+* Estilos para pantalla de tamaño hasta 800 pixeles.
+* -------------------------------------------------
+***/
+
+@media screen and (max-width: 800px) {
+  /****
+Estilos de los controles del formulario.
+* -------------------------------------
+****/
+  form label,
+  form input {
+    width: 100%;
+  }
+}
+
+
+/****
+* Estilos para pantalla de tamaño hasta 600 pixeles.
+* -------------------------------------------------
+***/
+
+@media screen and (max-width: 600px) {
+
+/****
+* Estilos del formulario.
+* ------------------------
+****/
+  form {
+    width: 95%;
+  }
+  /****
+  Estilos de los controles del formulario.
+  * -------------------------------------
+  ****/
+  form label,
+  form input {
+    width: 100%;
+  }
+}

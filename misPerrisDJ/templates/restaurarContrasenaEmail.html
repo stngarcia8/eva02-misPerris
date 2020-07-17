@@ -1,0 +1,14 @@
+Estimado: {{ user.first_name|capfirst }} {{user.last_name|capfirst }}
+Ha solicitado restaurar su contraseña en el sitio de la Fundación Mis Perris,
+Para proceder con el proceso, haga click en el siguiente enlace:
+
+{% block reset_link %}
+    {{ protocol }}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
+{% endblock %}
+
+Nombre de usuario: {{ user.username }}
+
+Atentamente,
+
+Fundación Mis Perris.
+---

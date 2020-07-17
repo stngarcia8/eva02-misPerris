@@ -1,0 +1,47 @@
+/****
+* Archivo: estilos-comunes.css
+* Caso de uso: Estilos comunes para etiquetas body y contenedor del sitio.
+* Alumno: Daniel Garcia.
+* ------------------------------------------------------------------------
+****/
+
+
+/***
+* Estilos comunes a todos los elementos de la pagina
+* ------------------------------------------------
+****/
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  box-sizing: border-box;
+}
+
+
+/****
+  * Estilos para etiqueta body
+  * -------------------------
+  */
+
+body {
+  background-color: white;
+}
+
+
+/*
+  * Estilo del contenedor generico del sitio
+  * este envuelbe a todos los elementos dentro del body
+  * ----------------------------------------------------
+  */
+
+.contenedor-generico {
+  background-color: white;
+  width: 95%;
+  max-width: 95%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}

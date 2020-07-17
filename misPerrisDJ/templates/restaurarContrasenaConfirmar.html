@@ -1,0 +1,54 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Confirmar contraseña.</title>
+    {% endblock %}
+    <!-- Enlazando paginas de estilos css -->
+    {% block cssHead %}
+    <link rel="stylesheet" href="{% static 'css/normal.css' %}"> {% endblock %}
+</head>
+
+<body>
+
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+        <div id="contenedorForm" class="contenedor-formulario">
+            <h1>Restaurar su contraseña.</h1>
+            <hr>
+            <p>
+                    {% if validlink %}
+                    <p>
+                        Ingrese y confirme su nueva contraseña.
+                    </p>
+                    <form method="POST">
+                     {% csrf_token %}
+                     {% if form.non.field.errors %}
+                     {{ form.non.field.errors }}
+                 {% endif %}
+                 {% for field in form.visible_fields %}
+                     <div class="contenedor-campo">
+                         {{ field.label_tag }}
+                         {{ field }}
+                         {{ field.errors }}
+                     </div>
+                 {% endfor %}
+                 <button class="boton" type="submit">Cambiar contraseña</button>
+                    </form>
+                    {% else %}
+                    <p>
+                        El enlace ya fue utilizado con anterioridad, intente nuevamente el proceso de restauración de contraseña.
+                    </p>
+                    {% endif %}
+        </p>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+/****
+* Archivo: cabecera.css
+* Caso de uso: Estilos para la cabecera del sitio.
+* Alumno: Daniel Garcia.
+* ------------------------------------------------
+****/
+
+
+/****
+  * Estilos  para etiqueta header.
+  * ------------------------------
+  ****/
+
+header {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #6dccaa;
+}
+
+
+/****
+  * Contenedor de elementos dentro de etiqueta header
+  * -------------------------------------------------
+  ****/
+
+.contenedor-header {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+
+
+/****
+  * Estilos de las imagenes contenidas dentro de etiqueta header
+  * ------------------------------------------------------------
+  ****/
+
+header img {
+  width: 90%;
+  max-width: 90%;
+  min-width: 90%;
+}
+
+
+/****
+  * Estilos para los elementos de la etiqueta nav
+  * ----------------------------------------------
+  ****/
+
+header nav.contenedor-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
+/****
+  * Estilos para los enlaces del menu.
+  * ----------------------------------
+  ****/
+
+header nav a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+
+/****
+* Estilos de los enlaces cuando son apuntados con el mouse
+* --------------------------------------------------------
+****/
+
+header nav a:hover {
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px 0px gray;
+  background-color: #58b494;
+}
+
+
+/****
+* Estilos de la cabecera para resoluciones de pantalla hasta 800 pixeles.
+* ----------------------------------------------------------------------
+****/
+
+@media screen and (max-width: 800px) {
+  /****
+  * Contenedor del header
+  * ----------------------
+  ****/
+  .contenedor-header {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  /****
+  * Estilos para el header.
+  *----------------------
+  ****/
+  header {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  /****
+  * Estilos para las imagenes del header.
+  * ------------------------------------
+  ****/
+  header img {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+  }
+}
+
+
+/****
+* Estilos del header en tamaños de pantallas menor a 600 pixeles
+* -------------------------------------------------------------
+****/
+
+@media screen and (max-width: 600px) {
+  /****
+    * Estilos para el contenedor del header.
+    * -------------------------------------
+    ****/
+  .contenedor-header {
+    width: 75%;
+    min-width: 75%;
+    max-width: 75%;
+    ;
+  }
+  /****
+    * Estilos para la etiqueta header.
+    * ---------------------------------
+    ****/
+  header {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  /****
+    * Estilos para las imagenes del header.
+    * ------------------------------------
+    ****/
+  header img {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-bottom: 1px solid gray;
+    margin: auto;
+  }
+  /****
+    * Estilos para etiqueta nav dentro del header.
+    * -------------------------------------------
+    ****/
+  header nav.contenedor-header {
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  /****
+    * Estilos para los enlaces del menu superior.
+    * ------------------------------------------
+    ****/
+  header nav a {
+    margin: 0;
+    padding: 2;
+    font-size: 5vw;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid gray;
+  }
+}

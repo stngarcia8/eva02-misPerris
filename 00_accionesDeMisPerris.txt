@@ -1,0 +1,53 @@
+Lo que hace el Mis Perris.
+Datos del administrador:
+usuario: asathor
+contraseña: asathor
+
+1. Crear mascotas, como administrador.
+al ingresar como administrador, en la parte superior en el menu de mis perris, aparece la opción mantenedor de rescatados.
+Si no hay ningun rescatado ni disponible, se avisa que no existen perritos con ese criterio, el administrador puede ver a los rescatados y disponibles y puede cambiar el estado directamente desde la lista.
+En la parte superior del titulo esta el enlace para crear rescatados nuevos, una vez qu ha creado una mascota aparecerá en la lista y tendra cada perrito las opciones de:
+ver: muestra la info del perrito.
+editar: edita la información del perrito.
+eliminar: elimina al perrito de la base de datos.
+una vez que el peerito esta disponible este sera visibles desde la lista para los usuarios registrados.
+
+2. crear un usuario con rut y correo real,.
+en la pagina de inicio de mis perris cuando un usuario no esta registrado, se mostrara una bienvenida en la parte izquierda antes del encabezado, y aparecera en la parte de rescate un enlace de registro, esto no aparece cuando un usuario esta registrado.
+En dicho enlace "Registrarse aqui" permite ingresar al sistema y una vez completado el registro recibira un email con las credenciales, pero estas son siempre asi:
+nombre de usuario: rut ingresado
+contraseña: 5 primeros digitos del rut.
+al terminar el registro luego del correo se redigira al la pagina de login par comenzar con las acciones del usuario.
+
+3. luego adoptar.
+cuando un usuario inicia sesión se envia a la pagina de inicio de mis perris, pero ya no esta el enlace de registro y aparece la bienvenida con el nombre del usuario, en la parte del menu de mis perris aparece un enlace para la lista de disponibles.
+Al pulsar dicho enlace, aparece la lista de todos los perritos disponibles, para adoptar solo hay que pinchar el enlace que precede al perrito, tambien puede ver su informacion y listo ha adoptado a una mascota.
+
+4. ver informacion de usuario.
+Luego que al menos ha realizado una adopcion, en la parte de la bienvenida aparece el nombre del usuario y este es un enlace que muestra la informacion del usuario, ademad mostrar las mascotas adoptadas.
+En esta lista se permite devolver al perrito , agregar una experiencia de adopcion, recuerda el tema del carrusel? queria colocar los adoptados ahi, pero no alcance.
+Si si devuelbe al perrito este pasa a quedar como disponible.
+En la pantalla del usuario en la parte inferior izquierda, puede cerrar la cuenta si quiere, pero antes pruebe el asunto de restaurar contraseña.
+
+5. Restaurar contraseña.
+en el inicio de sesion bajo el boton de ingresar esta el enlace para restaura la contraseña, da lo mismo el tipo de usuario, lo importante es el correo que fue ingresado, si le hace un flush a la base de datos, el usuario administrador debe tener una cuenta de correo valida.
+Aqui se envia a una pantalla de ingreso de correo, luego se avisa que se mando un correito con instrucciones, al pulsar el enlace del correo, se redirige a una pantalla para ingresar y confirmar la nueva contraseña, si todo sale bien, se informa que la contraseña fue cambiada y listo, contraseña restaurada, puede iniciar sesion nuevamente para borrar la cuenta.
+
+6. Eliminar cuenta.
+En la pantalla de informacion del usuaro, al final esta el enlace de cerrar la cuenta, la pulsa  y le mandará a una página de si esta seguro de borrar la cuenta, y asi hasta que se aburra y no la borre!!!
+No es mentira, luego de confirma que quiere borrar su cuenta le dice chaito y esta el enlace para finalizar el proceso, aunque eso da lo mismo porque antes de borrar todo el usuario ya no tiene sesion activa y se borra nomas, queria mandar un correo informando esto pero se me olvido.
+
+7. intrusear la pagina como anonimo, aqui puede realizar solo un filtro de la galeria de los perritos que estan rescatados, disponibles y adoptados, a parte de registrarse nuevamente, pero para que? mientras mas rapido ponga el 7 es mejor y asi revisa a los demas.
+
+Intente colocar seguridad con los ingresos a la mala pero puede que se me pase alguno.
+
+Lo de los test no lo supe hacer.
+
+...y eso es todo lo que hace el mis perris.
+...se me olvidaba, mientras ingresa perritos estos se van a la carpeta media, pero si elimina al perrito la foto tambien se va!!! asi no llena la carpeta de cachureos.
+...yo uso gitlab y tengo el programita ahi, en cuanto lo evalúe, lo subo a github si sirve de algo!!!
+El codigo no esta para nada de pulido, no me gusto como quedo falto refactorizar, mucho codigo repetido, pero para la otra lo refactorizo, el html queda un real spagetti y mas encima el visual code coloca el formato que quiere en las templates, en eso es un fiasco, me devuelbo al notepad++
+
+Ahora si eso es todo.
+
+

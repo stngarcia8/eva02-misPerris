@@ -1,0 +1,21 @@
+/****
+* Archivo: pie-pagina.css
+* Caso de uso: Estilos parael pie de pagina del sitio.
+* Alumno: Daniel Garcia.
+* ----------------------------------------------------
+****/
+
+
+/*
+  * Estilo de la etiqueta foother
+  * ------------------------------
+  */
+
+footer {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: silver;
+}
+
+

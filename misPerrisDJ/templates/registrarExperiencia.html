@@ -1,0 +1,51 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Experiencia de adopción.</title>
+    {% endblock %}
+    <!-- Enlazando paginas de estilos css -->
+    {% block cssHead %}
+    <link rel="stylesheet" href="{% static 'css/normal.css' %}"> {% endblock %}
+</head>
+
+<body>
+
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+        <div id="contenedorForm" class="contenedor-formulario">
+            <h1>Experiencia de adopción.</h1>
+            <br>
+            <hr><br>
+            <p>
+                Por favor, ingrese la experiencia vivida al adoptar a {{ mascota.nombre|capfirst }}.
+            </p>
+            <p>
+            <form method="post">
+                {% csrf_token %} 
+                {% csrf_token %}
+                {% if form.non.field.errors %}
+                    {{ form.non.field.errors }}
+                {% endif %}
+                {% for field in form.visible_fields %}
+                    <div class="contenedor-campo">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                        {{ field.help_text|safe }}
+                    </div>
+                {% endfor %}
+                <button class="boton" type="submit">Grabar</button>
+            </form>
+        </p>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

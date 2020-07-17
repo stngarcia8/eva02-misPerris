@@ -1,0 +1,39 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Información de {{mascota.nombre}}.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+            <div  class="contenedor-ver-informacion">
+                <h1>Datos de la mascota.</h1>
+                <img src="{{ mascota.imagen.url}}" alt="Imagen de {{ mascota.nombre }}">
+                <br>
+                <p class="datos-mascota">
+                {{ mascota.nombre|capfirst }} es de raza {{ mascota.raza|capfirst }},<br>
+                 {{ mascota.descripcion|lower }}
+            </p>
+            <br>
+            {% if request.user.is_superuser %}
+                <a href="{% url 'mantenedorRescatados' %}">Volver</a>
+            {% else %}
+                <a href="{% url 'listaRescatados' %}">Volver</a>
+            {% endif %}
+                </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

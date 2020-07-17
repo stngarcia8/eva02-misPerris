@@ -1,0 +1,164 @@
+/****
+* Archivo: slider.css
+* Caso de uso: Estilos para el carrusel de la pagina de inicio.
+* Alumno: Daniel Garcia.
+* -----------------------------------------------------------
+****/
+
+
+/****
+* Importando la hoja de estilos del slider original.
+* --------------------------------------------------
+****/
+
+@import url(jquery.bxslider.css);
+
+/****
+* Estilos para el contenedor del carrusel
+* ---------------------------------------
+****/
+
+.contenedor-carrusel {
+  width: 100%;
+  height: 250px;
+  max-height: 250px;
+  margin: auto;
+}
+
+
+/****
+* Estilos para el contenedor del slider
+* ------------------------------------
+****/
+
+.contenedor-slider {
+  width: 555px;
+  min-width: 555px;
+  max-width: 555px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  margin: auto;
+}
+
+
+/****
+* Estilo para las imagenes del objeto carrusel
+*---------------------------------------------
+****/
+
+#miCarrusel img {
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
+  background-size: cover;
+}
+
+
+/****
+* Estilos para las imagenes del slider
+* ------------------------------------
+****/
+
+#imagenCarrusel {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 350px;
+  min-height: 350px;
+  max-height: 350px;
+  background-size: cover;
+}
+
+
+/****
+* Estilo para el texto del testimonio de las mascotas dentro del slider
+* ---------------------------------------------------------------------
+****/
+
+.testimonio {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  top: 25px;
+  left: 260px;
+  text-align: justify;
+  font-size: .85em;
+  color: black;
+}
+
+
+/****
+* Estilos del slider para tamaños de pantalla hasta 800 pixeles.
+* --------------------------------------------------------------
+****/
+
+@media screen and (max-width: 800px) {
+  /****
+    * Estilos del contenedor del slider
+    * --------------------------------
+    ****/
+  .contenedor-slider {
+    padding-top: 10px;
+    margin: auto;
+  }
+  /****
+    * Estilo para el texto del testimonio sobre las imagen del slider
+    * ---------------------------------------------------------------
+    ****/
+  .testimonio {
+    position: absolute;
+    top: 25px;
+    left: 260px;
+  }
+}
+
+
+/****
+* Estilos del slider para tamaños de pantalla hasta 600 pixeles.
+* --------------------------------------------------------------
+****/
+
+@media screen and (max-width: 600px) {
+  /****
+  * Estilos para el contenedor del carrusel
+  * ---------------------------------------
+  ****/
+  .contenedor-carrusel {
+    height: 380px;
+    min-height: 380px;
+    max-height: 380px;
+  }
+  /****
+  * Estilos del contenedor del slider
+  * ---------------------------------
+  ****/
+  .contenedor-slider {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    padding-top: 10px;
+  }
+  /****
+  * Estilos para las imagenes del slider
+  * ------------------------------------
+  ****/
+  #imagenCarrusel {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+  }
+  /****
+  * Estilo para el texto del testimonio sobre las imagen del slider
+  * --------------------------------------------------------------
+  ****/
+  .testimonio {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+  }
+}

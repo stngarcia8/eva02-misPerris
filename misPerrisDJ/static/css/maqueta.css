@@ -1,0 +1,196 @@
+/****
+* Archivo: maqueta.css
+* Caso de uso: Estilos para la maqueta   del sitio.
+* Alumno: Daniel Garcia.
+* ---------------------------------------------------------------------
+****/
+
+
+/****
+* Importando archivos necesarios para la pagina de inicio.
+* -------------------------------------------------------
+****/
+
+@import url(presentacion/estilos-comunes.css);
+@import url(presentacion/cabecera.css);
+@import url(presentacion/redes-sociales.css);
+@import url(presentacion/cuerpo-pagina.css);
+@import url(presentacion/pie-pagina.css);
+
+/****
+* Estilos especificos de la clase contenedor-rescate
+* -------------------------------------------------
+****/
+
+.contenedor-rescate {
+  align-items: flex-end;
+  text-align: right;
+}
+
+
+/****
+* Estilos especificos de la clase contenedor-crowdfunding
+* --------------------------------------------------------
+****/
+
+.contenedor-crowdfunding {
+  align-items: flex-start;
+  text-align: left;
+}
+
+
+/****
+* Estilo para el boton de la zona contenedor-crowdfunding
+* -------------------------------------------------------
+****/
+
+.boton {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+
+/****
+* Estilo del contenedor principal de la galeria de imagenes.
+*---------------------------------------------------------
+****/
+
+.contenedor-galeria-mascotas {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/****
+* Estilos para la galeria de imagenes.
+* ------------------------------------
+****/
+
+.contenedor-galeria {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+
+/****
+* Estilos para los contenedores de las columnas de la galeria de mascotas.
+* ---------------------------------------------
+****/
+
+.contenedor-col-izquierda,
+.contenedor-col-central,
+.contenedor-col-derecha {
+  width: 30%;
+  max-width: 30%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+
+/****
+* Estilos comunes de las imagenes de la galeria de mascotas.
+* ---------------------------------------------------------
+****/
+
+.contenedor-col-izquierda img,
+.contenedor-col-central img,
+.contenedor-col-derecha img {
+  width: 100%;
+  max-width: 100%;
+  transform: scale(1);
+  transition: all ease 0.5s;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid #000000;
+  padding: 0;
+  margin: 0;
+}
+
+
+/****
+* Estilos para las imagenes de la columna izquierda de la galeria.
+* ---------------------------------------------------------------
+****/
+
+.contenedor-col-izquierda img {
+  height: 30%;
+  max-height: 30%;
+}
+
+
+/****
+* Estilos para las imagenes de la columna central de la galeria.
+*--------------------------------------------------------------
+****/
+
+.contenedor-col-central img {
+  height: 45%;
+  max-height: 45%;
+}
+
+
+/****
+* Estilos para la imagen mas alta de la columna de la derecha de la galeria de mascotas.
+* -----------------------------------------------------------------------------------
+****/
+
+.imagen-col-derecha-alta {
+  height: 60%;
+  max-height: 60%;
+}
+
+
+/****
+  * Estilo para la imagen mas baja de la columna de la derecha de la galeria de mascotas.
+  * ---------------------------------------------------------------------------------
+  ****/
+
+.imagen-col-derecha-baja {
+  height: 30%;
+  max-height: 30%;
+}
+
+
+/****
+* Estilos para las imagenes cuando son apuntadas con el mouse.
+* ---------------------------------------------------------------
+****/
+
+.contenedor-col-izquierda img:hover,
+.contenedor-col-central img:hover,
+.contenedor-col-derecha img:hover {
+  transform: scale(1.1);
+  transition: all ease .5s;
+  border: 2px solid #000000;
+  box-shadow: 10px 10px 5px 3px rgba(0, 0, 0, 0.75);
+}
+
+
+/****
+* Estilos para pantalla de tamaño hasta 600 pixeles.
+* -------------------------------------------------
+***/
+
+@media screen and (max-width: 600px) {
+  /****
+* Estilos especificos de la clase contenedor-rescate y crowdfunding.
+* -----------------------------------------------------------------
+****/
+  .contenedor-rescate,
+  .contenedor-crowdfunding {
+    flex-flow: column nowrap;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed silver;
+  }
+}

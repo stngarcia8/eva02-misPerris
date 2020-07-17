@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% block titleHead %}
+    <title>Fundación Mis Perris</title>
+    {% endblock %}
+    <meta name="description" content="Sitio de la Fundación Mis Perris.">
+    <meta name="viewport" content="width=device-widtg,  initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0">
+    <!-- hojas de estilos css -->
+    <link rel="stylesheet" href="{% static 'css/maqueta.css' %}">
+    {% block cssHead %} 
+    {% endblock %}
+    <!-- scripts de la pagina. -->
+    <script src="{% static 'js/prefix.js' %}" type="test/javascript "></script>
+    {% block jsHead %}{% endblock %}
+</head>
+
+<body>
+    <div class="contenedor-generico">
+        <!-- creando la cabecera de la pagina -->
+        <header>
+            <!-- mostrando el logo-->
+            <div class="contenedor-header">
+                <img src="{% static 'img/logo_mis_perris.png' %}" alt="Fundacion Mis Perris">
+            </div>
+            <!-- Barra del menu superior -->
+            <nav class="contenedor-header">
+                    <a href="{% url 'inicio' %}">Inicio</a>
+                    <a href="#">¿Quienes somos?</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Contactenos</a> 
+
+                    <!-- Verificar si el usuario esta logeado. -->
+                    {% if not request.user.is_authenticated %}
+                        <a href="{% url 'iniciarSesion' %}">Iniciar sesión</a> 
+                    {% else %}
+                        <!-- El usuario esta logeado, verificar el tipo de usuario. -->
+                        {% if request.user.is_superuser %}
+                            <!-- Es administrador. -->
+                            <a href="{% url 'mantenedorRescatados' %}">Mantenedor rescatados</a> 
+                        {% else %}
+                            <!-- Es un usuario normal. -->
+                            <a href="{% url 'listaRescatados' %}">Rescatados disponibles</a> 
+                        {% endif %}
+                        <a href="{% url 'cerrarSesion' %}">Cerrar sesión</a> 
+                    {% endif %}
+
+            </nav>
+
+            <!-- Bloque para  el slider -->
+            <div class="contenedor-carrusel">
+                {% block slider %} {% endblock %}
+            </div>
+
+            <!-- Area de redes sociales -->
+            <div class="contenedor-redes-sociales">
+                <a href="#">
+                    <img src="{% static 'img/redes-sociales/facebook.png' %}" alt="Facebook">
+                </a>
+                <a href="#">
+                    <img src="{% static 'img/redes-sociales/google+.png' %}" alt="Google+">
+                </a>
+                <a href="#">
+                    <img src="{% static 'img/redes-sociales/instagram.png' %}" alt="instagram">
+                </a>
+                <a href="#">
+                    <img src="{% static 'img/redes-sociales/mail.png' %}" alt="Correo electrónico">
+                </a>
+            </div>
+        </header>
+
+        <!-- Creando las opciones del usuario registrado. -->
+        <div>
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <!-- Es un administrador -->
+                    Bienvenido: {{ request.user.username|capfirst}} {{ request.user.last_name|capfirst }}
+                {% else %}
+                    <!-- Es un usuario registrado. -->
+                    Bienvenido: 
+                    <a href="{% url 'infoPersona' nomUsuario=request.user.username %}">{{ request.user.first_name|capfirst}} {{ request.user.last_name|capfirst }}</a>
+                {% endif %}
+            {% else %}
+            Bienvenido: Usuario anónimo.
+            {% endif %}
+        </div>
+
+        <!-- Creando el cuerpo de la pagina -->
+        {% block contenido %} {% endblock %}
+
+        <!-- Creando el pie de pagina -->
+        <footer>
+            <p>Desarrollo web móvil</p>
+        </footer>
+
+
+
+    </div>
+    {% block jsBody %}
+    <!-- Aqui incrusto los js que deban ser ejecutados por las paginas incrustadas. -->
+    {% endblock %} }}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Eliminar cuenta.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+            <div id="contenedorForm" class="contenedor-formulario">
+                <h1>¿Esta seguro de eliminar su cuenta?.</h1>
+            <br>
+            <hr><br>
+            <p>
+                {{ persona.nombre|capfirst }}, esta a punto de eliminar su cuenta.<br>
+                Si llego aqui por casualidad, no se preocupe, pinche el enlace de "Inicio" y listo.<br>
+                Si esta seguro de eliminar su cuenta, presione el enlace "Eliminar mi cuenta"
+                <br>
+                <br>
+                <a href="{% url 'eliminarPersona' pk=persona.id %}">Eliminar mi cuenta</a>
+                <br>
+            </p>
+            </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

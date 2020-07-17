@@ -1,0 +1,34 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Restaurar contraseña.</title>
+    {% endblock %}
+    <!-- Enlazando paginas de estilos css -->
+    {% block cssHead %}
+    <link rel="stylesheet" href="{% static 'css/normal.css' %}"> {% endblock %}
+</head>
+
+<body>
+
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+        <div id="contenedorForm" class="contenedor-formulario">
+            <h1>Restaurar contraseña.</h1>
+            <br><hr><br>
+            <p>
+                El proceso de restauración de contraseña ha finalizado correctamente.<br>
+                Para ingresar solo debe hacer click en la opción "Iniciar sesión" o simplemente haga click 
+                <a href="{% url 'iniciarSesion' %}">aqui</a> 
+            </p>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% extends 'maqueta.html' %} {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+        <title>Fundación Mis Perris: Despedida.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+        <!-- Creando el cuerpo de la pagina -->
+        <section>
+            <div id="contenedorForm" class="contenedor-formulario">
+                <h1>Adios!.</h1>
+                <hr><br>
+                <p>
+                    Lamentamos quenos deje, pero recuerde que siempre tendremos una mascota para usted.<br> Hasta pronto!<br>
+                    <br><br>
+                    <a href="{% url 'inicio' %}">Finalizar</a>
+                </p>
+            </div>
+        </section>
+    {% endblock %}
+</body>
+
+</html>

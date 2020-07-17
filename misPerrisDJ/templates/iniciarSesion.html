@@ -1,0 +1,53 @@
+{% extends 'maqueta.html' %}
+
+<!-- agregando archivos estaticos -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead  %}
+        <title>Fundación Mis Perris: Inicio de sesión</title>>
+        {% endblock %}
+    }}
+    <!-- Enlazando paginas de estilos css -->
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- Contenido de la pagina de inicio de sesion -->
+    {% block contenido %}
+    <section>
+        <div id="contenedorFormulario" class="contenedor-formulario">
+            <h1>Iniciar sesión.</h1>
+            <br><hr><br>
+            <p>
+                Ingrese su nombre de usuario y contraseña para acceder a su perfil.
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                {% if form.non.field.errors %}
+                    {{ form.non.field.errors }}
+                {% endif %}
+                {% for field in form.visible_fields %}
+                    <div class="contenedor-campo">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                        {{ field.help_text|safe }}
+                    </div>
+                {% endfor %}
+                <button class="boton" type="submit">Ingresar</button>
+                <a href="{% url 'password_reset' %}">Olvide mi contraseña</a>
+            </form>
+        </div>
+    </section>
+    {% endblock %}
+
+</body>
+
+</html>

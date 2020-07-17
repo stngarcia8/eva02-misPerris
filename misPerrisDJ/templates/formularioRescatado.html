@@ -1,0 +1,61 @@
+{% extends 'maqueta.html' %}
+
+<!-- agregando archivos estaticos -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Administrador - Ingreso de rescatados.</title>
+    {% endblock %}
+    <!-- Enlazando paginas de estilos css -->
+    {% block cssHead %}
+    <link rel="stylesheet" href="{% static 'css/normal.css' %}"> {% endblock %}
+
+    <!-- Enlazando los script necesarios de la pagina -->
+    {% block jsHead %}
+    <script src="{% static 'js/jquery/jquery.js' %}"></script>
+    {% endblock %}
+</head>
+
+<body>
+
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+        <div id="contenedorForm" class="contenedor-formulario">
+            <h1>Datos de la mascota.</h1>
+            <br>
+            <hr><br>
+            <p>
+                Ingrese la información de la mascota.
+            </p>
+            <p>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %} 
+                {% csrf_token %}
+                {% if form.non.field.errors %}
+                    {{ form.non.field.errors }}
+                {% endif %}
+                {% for field in form.visible_fields %}
+                    <div class="contenedor-campo">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                        {{ field.help_text|safe }}
+                    </div>
+                {% endfor %}
+                <button class="boton" type="submit">Grabar</button>
+            </form>
+        </p>
+        </div>
+    </section>
+    {% endblock %}
+
+    <!-- Script de la pagina. -->
+    {% block jsBody %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+{% extends 'maqueta.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% block titleHead %}
+    <title>Fundación Mis Perris: Usuario - Información de usuario.</title>
+    {% endblock %}
+    {% block cssHead %}
+        <link rel="stylesheet" href="{% static 'css/normal.css' %}"> 
+    {% endblock %}
+</head>
+
+<body>
+    <!-- Contenido de la pagina -->
+    {% block contenido %}
+    <!-- Creando el cuerpo de la pagina -->
+    <section>
+        <div id="contenedorForm" class="contenedor-formulario">
+            <!-- Mostrar la informacion personal del usuario. -->
+            <h1>Información personal</h1>
+            <br><hr><br>
+            <table>
+                <tr>
+                    <td>Nombre:</td><td>{{persona.nombre|capfirst }}</td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td><td>{{persona.apellido|capfirst }}</td>
+                </tr>
+                <tr>
+                    <td>Rut:</td><td>{{persona.rut }}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td><td>{{persona.email }}</td>
+                </tr>
+                <tr>
+                    <td>Fecha de nacimiento</td><td>{{persona.nacimiento }}</td>
+                </tr>
+            </table>
+            <br>
+            <!-- Verificar si existen mascotas disponibles.-->
+            {% if mascotas %}
+            <!-- El usuario tiene perritos adoptados. -->
+            <h1> Lista de perritos adoptados.</h1>
+            <br><hr><br>
+            {% for m in mascotas %}
+            <div class="contenedor-fila-lista">
+            <div class="contenedor-item-lista">
+                <img  src="{{ m.idMascota.imagen.url}}" alt="Imagen de {{ m.idMascota.nombre }}">
+                <p>
+                Nombre: {{m.idMascota.nombre|capfirst }}<br>
+                Raza: {{m.idMascota.raza|capfirst }}<br>
+                {% ifequal m.idMascota.estado 'a' %}
+                {{ 'Estado: Adoptado' }}
+                {% endifequal %}
+                <br>
+                Descripción: {{m.idMascota.descripcion|capfirst }}<br>
+                {% if m.descripcion %}
+                    <br>
+                    Experiencia de adopción: {{ m.descripcion|capfirst }}
+                    <br>
+                {% endif %}
+                </p>
+            </div>
+            <p>
+                <a href="{% url 'experienciaAdopcion' pkPersona=persona.id pkMascota=m.idMascota.id %}">Experiencia</a>
+                <a href="{% url 'dejarAdopcion' pkPersona=persona.id pkMascota=m.idMascota.id %}">Devolver a {{ m.idMascota.nombre|capfirst }}</a>
+            </p>
+            </div>
+            {% endfor %}
+            <br>
+            <!-- Enlaces para el paginador -->
+            <div class="pagination">
+                <span class="step-links">
+                    {% if mascotas.has_previous %}
+                        <a href="?page=1">&laquo; primera</a>
+                        <a href="?page={{ mascotas.previous_page_number }}">Anterior</a>
+                    {% endif %}
+                        <span class="current">
+                        Pagina {{ mascotas.number }} de {{ mascotas.paginator.num_pages }}.
+                    </span> {% if mascotas.has_next %}
+                <a href="?page={{ mascotas.next_page_number }}">siguiente</a>
+                <a href="?page={{ mascotas.paginator.num_pages }}">Ultimo &raquo;</a> {% endif %}
+                </span>
+            </div>
+            {% else %}
+            <!-- No hay perritos disponibles. -->
+                <h1>No posee perritos adoptados.</h1>
+            <br>
+            <hr><br>
+            <p>
+                Animese y busque a su mascota perfecta en la lista de perritos disponibles para adopción.<br>
+                También puede visitar la galería de mascotas en la página de inicio si desea ver mas perritos.<br>
+                ¡Una de nuestras mascota lo espera!
+            </p>
+            {% endif %}
+
+            <!-- Mostrar opciones de usuario. -->
+            <h1>Opciones de usuario</h1>
+            <br><hr><br>
+            <a href="{% url 'solicitarBajaPersona' pk=persona.id %}">Eliminar cuenta</a>
+        </div>
+    </section>
+    {% endblock %}
+
+    <!-- Script de la pagina. -->
+    {% block jsBody %}
+
+    {% endblock %}
+</body>
+
+</html>
